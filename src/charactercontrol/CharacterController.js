@@ -164,7 +164,7 @@ export class CharacterController {
 
     // Jump impulse
     if (this.keys.jump && onGround) {
-      this.vehicle.velocity.y = 7;
+      this.vehicle.velocity.y = 17;
     }
 
     // Critical: Stop bouncing on ground
@@ -184,4 +184,9 @@ export class CharacterController {
     this.updateMovement(delta);
     this.cameraFollow.update(delta);
   }
+}
+
+function thisis() {
+  const something = 1;
+  console.log(something);
 }
