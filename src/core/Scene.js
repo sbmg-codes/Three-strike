@@ -7,6 +7,13 @@ import { physicalWorld } from "../physics/PhysicsWorld";
 import { CharacterController } from "../charactercontrol/CharacterController";
 import CannonDebugger from "cannon-es-debugger";
 
+class JustWin {
+  constructor() {
+    console.log("Just Win Already");
+    console.log("coding on this is really good");
+  }
+}
+
 class Scene {
   constructor() {
     this.scene = new THREE.Scene();

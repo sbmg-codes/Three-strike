@@ -4,6 +4,8 @@ import { physicalWorld } from "./PhysicsWorld";
 import { modelsManager } from "../models/ModelsManager";
 import * as THREE from "three";
 
+class JustWin {}
+
 class PhysicsManager {
   constructor() {
     this.scene = null;
