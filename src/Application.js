@@ -31,7 +31,7 @@ class Application {
 }
 
 async function initGun(path) {
-  await weaponLoader.loadWeapon("/glbs/impg.glb");
+  await weaponLoader.loadWeapon("/glbs/untitled.glb");
 
   const anim = new WeaponAnimation(weaponLoader.weapon);
   anim.playAnimation();

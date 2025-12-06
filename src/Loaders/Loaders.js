@@ -111,6 +111,10 @@ class WeaponLoader {
           roughness: 0.1,
         });
       }
+
+      if (child.name == "pistol_upper") {
+        console.log(child.animations);
+      }
     });
 
     const pointLight = new THREE.PointLight("white", 1, 2);

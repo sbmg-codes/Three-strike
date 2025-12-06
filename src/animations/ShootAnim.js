@@ -8,7 +8,6 @@ export class WeaponAnimation {
 
   playAnimation() {
     console.log(this.gltf);
-    console.log(this.gltf.animations);
   }
 
   idleAnimation() {}

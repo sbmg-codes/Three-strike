@@ -7,7 +7,7 @@ class LightsManager {
   }
 
   ambientLightSetup() {
-    const ambientLight = new THREE.AmbientLight("white", 0.9);
+    const ambientLight = new THREE.AmbientLight("white", 1.6);
     this.scene.add(ambientLight);
   }
 }
