@@ -7,7 +7,8 @@ export class WeaponAnimation {
   }
 
   playAnimation() {
-    console.log(this.gltf);
+    console.clear();
+    console.log(this.gltf.animations);
   }
 
   idleAnimation() {}

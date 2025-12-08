@@ -49,6 +49,7 @@ export class LoadMap {
         "/glbs/map.glb",
         (glb) => {
           this.scene.add(glb.scene);
+          console.log(glb.animations);
           this.map = glb.scene;
           modelsManager.map = this.map;
 
@@ -94,26 +95,15 @@ class WeaponLoader {
     const glb = await this.loader.loadAsync(path);
     const model = glb.scene;
 
+    // alert(glb.animations[0].name);
+
     if (!this.scene.children.includes(this.camera)) {
       this.scene.add(this.camera);
     }
 
     model.traverse((child) => {
       if (child.isMesh && child.material.type === "MeshBasicMaterial") {
-        const oldMaterial = child.material;
-        child.material = new THREE.MeshStandardMaterial({
-          map: oldMaterial.map,
-          side: oldMaterial.side,
-          color: new THREE.Color("white"),
-          transparent: oldMaterial.transparent,
-          opacity: oldMaterial.opacity,
-          metalness: 0.5,
-          roughness: 0.1,
-        });
-      }
-
-      if (child.name == "pistol_upper") {
-        console.log(child.animations);
+        // child.material = THREE.MeshBasicMaterial({});
       }
     });
 
@@ -121,14 +111,14 @@ class WeaponLoader {
     pointLight.position.set(0, 0, 0);
     this.camera.add(pointLight);
 
-    model.scale.set(1, 1, 1);
+    model.scale.set(0.7, 0.7, 0.7);
     model.rotation.y = Math.PI / 2;
 
     const box = new THREE.Box3().setFromObject(model);
     const center = box.getCenter(new THREE.Vector3());
     model.position.sub(center);
 
-    model.position.set(0, -0.5, 2.4);
+    model.position.set(9, -3.5, -11.4);
     this.camera.add(model);
 
     this.weapon = model; // ← now set AFTER real async load
