@@ -13,6 +13,8 @@ class Renderer {
     window.addEventListener("resize", () => {
       this.handleResize();
     });
+    this.renderer.outputColorSpace = THREE.SRGBColorSpace;
+    this.renderer.toneMappingExposure = 1;
   }
 
   handleResize() {

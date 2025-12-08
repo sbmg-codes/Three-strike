@@ -58,7 +58,6 @@ export class LoadMap {
             if (child.name === "ground") this.ground = child;
           });
 
-          // console.log("✅ Ground:", this.ground);
           modelsManager.ground = this.ground;
 
           this.mergedMap = this.getMeshesFromGroup(glb.scene);
@@ -101,15 +100,12 @@ class WeaponLoader {
       this.scene.add(this.camera);
     }
 
-    model.traverse((child) => {
-      if (child.isMesh && child.material.type === "MeshBasicMaterial") {
-        // child.material = THREE.MeshBasicMaterial({});
-      }
-    });
+    const al = new THREE.AmbientLight("pink", 0.4);
+    model.add(al);
 
-    const pointLight = new THREE.PointLight("white", 1, 2);
-    pointLight.position.set(0, 0, 0);
-    this.camera.add(pointLight);
+    const pointLight = new THREE.PointLight("white", 10, 200, 0.4);
+    pointLight.position.set(0, 10, 0);
+    model.add(pointLight);
 
     model.scale.set(0.7, 0.7, 0.7);
     model.rotation.y = Math.PI / 2;
@@ -121,8 +117,7 @@ class WeaponLoader {
     model.position.set(9, -3.5, -11.4);
     this.camera.add(model);
 
-    this.weapon = model; // ← now set AFTER real async load
-    return this.weapon;
+    this.weapon = model;
   }
 }
 
