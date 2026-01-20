@@ -9,12 +9,15 @@ class Renderer {
     // this.renderer.setClearColor("transparent", 0);
     this.renderer.toneMapping = THREE.ACESFilmicToneMapping;
     this.renderer.toneMappingExposure = 0.5;
+    this.renderer.outputEncoding = THREE.sRGBEncoding;
 
     window.addEventListener("resize", () => {
       this.handleResize();
     });
     this.renderer.outputColorSpace = THREE.SRGBColorSpace;
     this.renderer.toneMappingExposure = 1;
+    this.renderer.shadowMap.enabled = true;
+    this.renderer.shadowMap.type = THREE.PCFShadowMap;
   }
 
   handleResize() {

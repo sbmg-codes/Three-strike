@@ -51,11 +51,14 @@ export class LoadMap {
           this.scene.add(glb.scene);
           console.log(glb.animations);
           this.map = glb.scene;
+          // this.map.receiveShadow = true;
           modelsManager.map = this.map;
+          this.map.receiveShadow = true;
 
           // Find the ground mesh
           glb.scene.traverse((child) => {
             if (child.name === "ground") this.ground = child;
+            if (child.isMesh) child.castShadow = true;
           });
 
           modelsManager.ground = this.ground;
